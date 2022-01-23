@@ -2622,7 +2622,7 @@ function guess() {
       }
 
       if (table.rows.length == 5) {
-        var win = "Too Many Goes - Bad Luck! Thew word was";
+        var win = "Too Many Goes - Bad Luck! The word was";
         win += word;
 
         document.getElementById("answ").innerHTML = win;
