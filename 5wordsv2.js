@@ -72,7 +72,6 @@ function guessgo() {
         var letterin = word.includes(guess[j]);
         if (letterin == true) {
           colour[j] = "R";
-          document.getElementById(guess[j]).style.background = "#FF9800";
         } else {
           colour[j] = "-";
           var wrong = document.getElementById("w2").innerHTML;
@@ -93,7 +92,6 @@ function guessgo() {
       while (i < 5) {
         if (word[i] == guess[i]) {
           colour[i] = "G";
-          document.getElementById(guess[j]).style.background = "#4CAF50";
         }
         i++;
       }
