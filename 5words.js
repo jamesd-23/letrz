@@ -5880,8 +5880,15 @@ function guess() {
       }
 
       if (table.rows.length == 5) {
+        if (colour == "G,G,G,G,G") {
+         var win = "You win in: ";
+        win += table.rows.length;
+        win += " guesses";
+        } else {
+        
         var win = "Too Many Goes - Bad Luck! The word was";
-        win += word;
+        win += enter;
+        }
 
         document.getElementById("answ").innerHTML = win;
         var x = document.getElementById("guessword");

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <script type="text/javascript" src="5words.js" defer></script>
+    <script type="text/javascript" src="5wordsv2.js" defer></script>
     <!--
       This is the page head - it contains info the browser uses to display the page
       You won't see what's in the head in the page
@@ -9,7 +9,7 @@
     -->
 
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0, user-scalable=no" />
 
     <!-- 
       This is an HTML comment
@@ -42,33 +42,68 @@
  
   </head>
   <body onload="pickone()">
-  <h1>
-    LETTERZ</h1>
+  <center><h1>
+    LETTERZ</h1></center>
     <form>
-    <p>
-  Wrong Letters
-      </h3>
-  <div id="w2">
+   
+
+<center>
+<div id="w2">
   
-      </div>
-      <input type="text" id="guessword" name="guessword" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false">
-      <script>
-    document.getElementById('guessword').addEventListener('keypress', function(event) {
-        if (event.keyCode == 13) {
-            event.preventDefault();
-        }
-    });
-</script>
-<input id="createbuttin" type="button" value="Guess" onclick="guess()">
-<div id="answ">
+  
+  </div>
+  
+  <div id="answ">
       
     </div>
     <table id="result">
-      
+ 
     </table>
       <div id="error">
   
       </div>
+      </center>
+      <form>
+    <center>   
+     <h3 id="word">
+       
+      </h3>
+<div style="position: fixed; bottom: 0px;">
+  
+   
+<input id="q" type="button" value="q" onclick="guess('q')">
+<input id="w" type="button" value="w" onclick="guess('w')">
+<input id="e" type="button" value="e" onclick="guess('e')">
+<input id="r" type="button" value="r" onclick="guess('r')">
+<input id="t" type="button" value="t" onclick="guess('t')">
+<input id="y" type="button" value="y" onclick="guess('y')">
+<input id="u" type="button" value="u" onclick="guess('u')">
+<input id="i" type="button" value="i" onclick="guess('i')">
+<input id="o" type="button" value="o" onclick="guess('o')">
+<input id="p" type="button" value="p" onclick="guess('p')"><br>
+<input id="a" type="button" value="a" onclick="guess('a')">
+<input id="s" type="button" value="s" onclick="guess('s')">
+<input id="d" type="button" value="d" onclick="guess('d')">
+<input id="f" type="button" value="f" onclick="guess('f')">
+<input id="g" type="button" value="g" onclick="guess('g')">
+<input id="h" type="button" value="h" onclick="guess('h')">
+<input id="j" type="button" value="j" onclick="guess('j')">
+<input id="k" type="button" value="k" onclick="guess('k')">
+<input id="l" type="button" value="l" onclick="guess('l')"><br>
+<input id="z" type="button" value="z" onclick="guess('z')">
+<input id="x" type="button" value="x" onclick="guess('x')">
+<input id="c" type="button" value="c" onclick="guess('c')">
+<input id="v" type="button" value="v" onclick="guess('v')">
+<input id="b" type="button" value="b" onclick="guess('b')">
+<input id="n" type="button" value="n" onclick="guess('n')">
+<input id="m" type="button" value="m" onclick="guess('m')"><br>
+<input id="submit" type="button" value="Go" onclick="guessgo()">
+<input  id="del" type="button" value="<" onclick="dels()">
+  <input  id="del2" type="button" value="X" onclick="clearz()">
+      </div>
+  
+   </center>
+
 
     </form>
  
