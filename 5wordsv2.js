@@ -136,6 +136,7 @@ function guessgo() {
         var x = document.getElementById("guessword");
         document.getElementById("keyz").style.display = "none";
         var x = document.getElementById("createbuttin");
+        cookwin(table.rows.length);
       }
 
       if (table.rows.length == 5) {
@@ -148,11 +149,12 @@ function guessgo() {
           var win = "Too Many Goes - Bad Luck! The word was ";
           document.getElementById("keyz").style.display = "none";
           win += rest;
+          cookloose ();
         }
 
         document.getElementById("answ").innerHTML = win;
         var x = document.getElementById("guessword");
-        x.style.display = "none";
+        
         var x = document.getElementById("createbuttin");
       }
 
@@ -160,6 +162,62 @@ function guessgo() {
     }
   }
 }
+
+function cookwin (turns) {
+  let goes = getCookie("lettrz");
+  let turn = getCookie(turns);
+   if (goes == null) {
+     setCookie("lettrz",1,365);
+   } else {
+     goes++;
+     setCookie("lettrz",goes,365);
+   }
+  
+  if (turn == null){
+     setCookie(turns,1,365);
+    
+  } else {
+    turn++;
+    setCookie(turns,turn,365);
+    
+  }
+  
+}
+
+function cookloose () {
+  let goes = getCookie("lettrz");
+   if (goes == null) {
+     setCookie("lettrz",1,365);
+   } else {
+     goes++;
+     setCookie("lettrz",goes,365);
+   }
+  
+}
+
+
+function setCookie(cname, cvalue, exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000));
+  let expires = "expires="+d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
+
+function getCookie(cname) {
+  let name = cname + "=";
+  let ca = document.cookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
+    }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
+
 
 const words = [
   "which",
