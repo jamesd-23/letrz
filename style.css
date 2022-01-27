@@ -222,6 +222,7 @@ input[type='button'] {
   width: 8%; 
     height: 35px;
   text-align:center;
+  touch-action: manipulation;
   #del { width:20%; }
   
 }
