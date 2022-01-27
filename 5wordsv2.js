@@ -38,12 +38,11 @@ function dels() {
 }
 
 function clearz() {
- while (guessword.length > 0) {
+  while (guessword.length > 0) {
     var newguess = guessword.slice(0, -1);
     guessword = newguess;
     document.getElementById("word").innerHTML = guessword;
   }
-  
 }
 
 function guessgo() {
@@ -135,9 +134,8 @@ function guessgo() {
 
         document.getElementById("answ").innerHTML = win;
         var x = document.getElementById("guessword");
-        x.style.display = "none";
+        document.getElementById("keyz").style.display = "none";
         var x = document.getElementById("createbuttin");
-        x.style.display = "none";
       }
 
       if (table.rows.length == 5) {
@@ -145,8 +143,10 @@ function guessgo() {
           var win = "You win in: ";
           win += table.rows.length;
           win += " guesses";
+          document.getElementById("keyz").style.display = "none";
         } else {
           var win = "Too Many Goes - Bad Luck! The word was ";
+          document.getElementById("keyz").style.display = "none";
           win += rest;
         }
 
@@ -154,7 +154,6 @@ function guessgo() {
         var x = document.getElementById("guessword");
         x.style.display = "none";
         var x = document.getElementById("createbuttin");
-        x.style.display = "none";
       }
 
       document.getElementById("guessword").value = "";
