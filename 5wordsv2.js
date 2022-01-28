@@ -1,7 +1,8 @@
 var guessword = "";
-
 var rest;
 var spell;
+
+
 
 function pickone() {
   var max = words.length;
@@ -128,28 +129,103 @@ function guessgo() {
       // document.getElementById("result").innerHTML = op;
 
       if (colour == "G,G,G,G,G") {
-        var win = "You win in: ";
+        cookwin(table.rows.length);
+        
+        var win = "Well done! You win in: ";
+        var gameswon = 0;
+        var k=1;
+        var sum=0;
+        var res=0;
+        while (k<6){
+         sum = getCookie(k);
+         res = parseInt(sum);
+         if (res > 0){
+           gameswon = gameswon + res;
+         }
+          k++;  
+        }
+        
         win += table.rows.length;
-        win += " guesses";
-
-        document.getElementById("answ").innerHTML = win;
+        win += "<br>";
+        win += "This was game number ";
+        win += getCookie("lettrz");
+        win += "<br>You have won: ";
+        var winper = gameswon / getCookie("lettrz") * 100;
+        win += Math.round(winper);
+        win += "%"
+         win += '<br><a href="https://letrz.co.uk">Reload</a>';
+        document.getElementById("gamesdone").innerHTML = win;
+        document.getElementById("myModal").style.display = "block";
         var x = document.getElementById("guessword");
         document.getElementById("keyz").style.display = "none";
         var x = document.getElementById("createbuttin");
-        cookwin(table.rows.length);
+        
       }
 
       if (table.rows.length == 5) {
         if (colour == "G,G,G,G,G") {
-          var win = "You win in: ";
-          win += table.rows.length;
-          win += " guesses";
-          document.getElementById("keyz").style.display = "none";
+          cookwin(table.rows.length);
+        
+        var win = "Well done! You win in: ";
+        var gameswon = 0;
+        var k=1;
+        var sum=0;
+        var res=0;
+        while (k<6){
+         sum = getCookie(k);
+         res = parseInt(sum);
+         if (res > 0){
+           gameswon = gameswon + res;
+         }
+          k++;  
+        }
+        
+        win += table.rows.length;
+        win += "<br>";
+        win += "This was game number ";
+        win += getCookie("lettrz");
+        win += "<br>You have won: ";
+        var winper = gameswon / getCookie("lettrz") * 100;
+        win += Math.round(winper);
+        win += "%"
+         win += '<br><a href="https://letrz.co.uk">Reload</a>';
+        document.getElementById("gamesdone").innerHTML = win;
+        document.getElementById("myModal").style.display = "block";
+        var x = document.getElementById("guessword");
+        document.getElementById("keyz").style.display = "none";
+        var x = document.getElementById("createbuttin");
         } else {
-          var win = "Too Many Goes - Bad Luck! The word was ";
-          document.getElementById("keyz").style.display = "none";
-          win += rest;
           cookloose ();
+          var win = "Bad luck! The word was ";
+          win += rest;
+        var gameswon = 0;
+        var k=1;
+        var sum=0;
+        var res=0;
+        while (k<6){
+         sum = getCookie(k);
+         res = parseInt(sum);
+         if (res > 0){
+           gameswon = gameswon + res;
+         }
+          k++;  
+        }
+      
+        win += "<br>";
+       
+        win += "This was game number ";
+        win += getCookie("lettrz");
+        win += "<br>You have won: ";
+        var winper = gameswon / getCookie("lettrz") * 100;
+        win += Math.round(winper);
+        win += "%"
+        win += '<br><a href="https://letrz.co.uk">Reload</a>';
+        document.getElementById("gamesdone").innerHTML = win;
+        document.getElementById("myModal").style.display = "block";
+        var x = document.getElementById("guessword");
+        document.getElementById("keyz").style.display = "none";
+        var x = document.getElementById("createbuttin");
+          
         }
 
         document.getElementById("answ").innerHTML = win;
@@ -162,6 +238,8 @@ function guessgo() {
     }
   }
 }
+
+
 
 function cookwin (turns) {
   let goes = getCookie("lettrz");
