@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <script type="text/javascript" src="5wordsv2.js" defer></script>
+    
     <!--
       This is the page head - it contains info the browser uses to display the page
       You won't see what's in the head in the page
@@ -44,7 +45,7 @@
   <body onload="pickone()">
   <center><h1>
     LETTERZ</h1></center>
-    <form>
+    
    
 
 <center>
@@ -68,7 +69,18 @@
      <h3 id="word">
        
       </h3>
-<div id="keyz" style="position: fixed; bottom: 0px;">
+
+      <div id="myModal" class="modal">
+         
+        <div class="modal-content">
+            
+            
+    <h2 id="gamesdone"></h2>
+         
+  </div>
+      </div>
+      
+      <div id="keyz" style="position: fixed; bottom: 0px;">
   
    
 <input id="q" type="button" value="q" onclick="guess('q')">
@@ -106,6 +118,5 @@
 
 
     </form>
- 
   </body>
 </html>
