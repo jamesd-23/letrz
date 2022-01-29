@@ -28,6 +28,7 @@ function guess(letter) {
   guessword += letter;
   document.getElementById("word").innerHTML = guessword;
   document.getElementById("error").innerHTML = "";
+  document.getElementById("instructions").style.display = "none";
 }
 
 function dels() {
@@ -153,7 +154,7 @@ function guessgo() {
         var winper = gameswon / getCookie("lettrz") * 100;
         win += Math.round(winper);
         win += "%"
-         win += '<br><a href="https://letrz.co.uk">Reload</a>';
+         win += '<br><a href="https://letrz.co.uk">New Game</a>';
         document.getElementById("gamesdone").innerHTML = win;
         document.getElementById("myModal").style.display = "block";
         var x = document.getElementById("guessword");
@@ -188,7 +189,7 @@ function guessgo() {
         var winper = gameswon / getCookie("lettrz") * 100;
         win += Math.round(winper);
         win += "%"
-         win += '<br><a href="https://letrz.co.uk">Reload</a>';
+         win += '<br><a href="https://letrz.co.uk">New Game</a>';
         document.getElementById("gamesdone").innerHTML = win;
         document.getElementById("myModal").style.display = "block";
         var x = document.getElementById("guessword");
@@ -219,7 +220,7 @@ function guessgo() {
         var winper = gameswon / getCookie("lettrz") * 100;
         win += Math.round(winper);
         win += "%"
-        win += '<br><a href="https://letrz.co.uk">Reload</a>';
+        win += '<br><a href="https://letrz.co.uk">New Game</a>';
         document.getElementById("gamesdone").innerHTML = win;
         document.getElementById("myModal").style.display = "block";
         var x = document.getElementById("guessword");
