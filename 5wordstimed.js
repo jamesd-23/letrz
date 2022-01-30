@@ -3,179 +3,10 @@ var rest;
 var spell;
 
 function pickone() {
-  var progress = getCookie("inprog");
-  if (progress != 1) {
-    var max = words.length;
-    var ret = Math.floor(Math.random() * max);
-    rest = words[ret];
-    setCookie("inprog", 1, 365);
-    setCookie("ip1", "null", 365);
-    setCookie("ip2", "null", 365);
-    setCookie("ip3", "null", 365);
-    setCookie("ip4", "null", 365);
-    setCookie("ip5", "null", 365);
-    setCookie("currword", rest, 365);
-  }
-  if (progress == 1) {
-    rest = getCookie("currword");
-    var ip1 = getCookie("ip1");
-    var c1 = getCookie("c1");
-    var ip2 = getCookie("ip2");
-    var c2 = getCookie("c2");
-    var ip3 = getCookie("ip3");
-    var c3 = getCookie("c3");
-    var ip4 = getCookie("ip4");
-    var c4 = getCookie("c4");
-    var ip5 = getCookie("ip5");
-    var c5 = getCookie("c5");
-    var table = document.getElementById("result");
-    
-    while (table.rows.length > 0){
-      table.deleteRow(0);
-    }
-    
-    if (ip1 !== "null") {
-      var row = table.insertRow(0);
-      var i = 0;
-      var op = "";
-      while (i < 11) {
-        if (c1[i] == "G") {
-          op += '<td id="G">';
-          op += ip1[i];
-          op += "</td>";
-        }
-
-        if (c1[i] == "R") {
-          op += '<td id="R">';
-          op += ip1[i];
-          op += "</td>";
-        }
-
-        if (c1[i] == "-") {
-          op += "<td>";
-          op += ip1[i];
-          op += "</td>";
-        }
-
-        i++;
-        i++;
-      }
-      row.innerHTML = op;
-    }
-
-    op = "";
-    if (ip2 !== "null") {
-      row = table.insertRow(0);
-      i = 0;
-      while (i < 11) {
-        if (c2[i] == "G") {
-          op += '<td id="G">';
-          op += ip2[i];
-          op += "</td>";
-        }
-
-        if (c2[i] == "R") {
-          op += '<td id="R">';
-          op += ip2[i];
-          op += "</td>";
-        }
-
-        if (c2[i] == "-") {
-          op += "<td>";
-          op += ip2[i];
-          op += "</td>";
-        }
-
-        i++;
-        i++;
-      }
-      row.innerHTML = op;
-    }
-    op = "";
-    if (ip3 !== "null") {
-      row = table.insertRow(0);
-      i = 0;
-      while (i < 11) {
-        if (c3[i] == "G") {
-          op += '<td id="G">';
-          op += ip3[i];
-          op += "</td>";
-        }
-
-        if (c3[i] == "R") {
-          op += '<td id="R">';
-          op += ip3[i];
-          op += "</td>";
-        }
-
-        if (c3[i] == "-") {
-          op += "<td>";
-          op += ip3[i];
-          op += "</td>";
-        }
-
-        i++;
-        i++;
-      }
-      row.innerHTML = op;
-    }
-    op = "";
-    if (ip4 !== "null") {
-      row = table.insertRow(0);
-      i = 0;
-      while (i < 11) {
-        if (c4[i] == "G") {
-          op += '<td id="G">';
-          op += ip4[i];
-          op += "</td>";
-        }
-
-        if (c4[i] == "R") {
-          op += '<td id="R">';
-          op += ip4[i];
-          op += "</td>";
-        }
-
-        if (c4[i] == "-") {
-          op += "<td>";
-          op += ip4[i];
-          op += "</td>";
-        }
-
-        i++;
-        i++;
-      }
-      row.innerHTML = op;
-    }
-    op = "";
-    if (ip5 !== "null") {
-      row = table.insertRow(0);
-      i = 0;
-      while (i < 11) {
-        if (c5[i] == "G") {
-          op += '<td id="G">';
-          op += ip5[i];
-          op += "</td>";
-        }
-
-        if (c5[i] == "R") {
-          op += '<td id="R">';
-          op += ip5[i];
-          op += "</td>";
-        }
-
-        if (c5[i] == "-") {
-          op += "<td>";
-          op += ip5[i];
-          op += "</td>";
-        }
-
-        i++;
-        i++;
-      }
-      row.innerHTML = op;
-    }
-  }
+  var max = words.length;
+  var ret = Math.floor(Math.random() * max);
+  rest = words[ret];
+  console.log(words[ret]);
 }
 
 function checkspell(guess) {
@@ -190,6 +21,36 @@ function checkspell(guess) {
     i++;
   }
 }
+
+function countdown( elementName, minutes, seconds )
+{
+    var element, endTime, hours, mins, msLeft, time;
+
+    function twoDigits( n )
+    {
+        return (n <= 9 ? "0" + n : n);
+    }
+
+    function updateTimer()
+    {
+        msLeft = endTime - (+new Date);
+        if ( msLeft < 1000 ) {
+            element.innerHTML = "Time is up!";
+        } else {
+            time = new Date( msLeft );
+            hours = time.getUTCHours();
+            mins = time.getUTCMinutes();
+            element.innerHTML = (hours ? hours + ':' + twoDigits( mins ) : mins) + ':' + twoDigits( time.getUTCSeconds() );
+            setTimeout( updateTimer, time.getUTCMilliseconds() + 500 );
+        }
+    }
+
+    element = document.getElementById( elementName );
+    endTime = (+new Date) + 1000 * (60*minutes + seconds) + 500;
+    updateTimer();
+}
+
+
 
 function guess(letter) {
   guessword += letter;
@@ -250,9 +111,6 @@ function guessgo() {
             wrong += " ";
             // document.getElementById("w2").innerHTML = wrong;
             document.getElementById(guess[j]).style.background = "#a9a9a9";
-            
-            
-            
           }
         }
         j++;
@@ -295,22 +153,13 @@ function guessgo() {
         i++;
       }
 
-      var rt = table.rows.length;
-      console.log("rows num: " + table.rows.length);
-      var rs = "ip" + rt;
-      var rc = "c" + rt;
-
-      setCookie(rs, guess, 365);
-
-      setCookie(rc, colour, 365);
-
       //op += "</tr>"
       row.innerHTML = op;
       // document.getElementById("result").innerHTML = op;
 
       if (colour == "G,G,G,G,G") {
         cookwin(table.rows.length);
-        setCookie("inprog", 0, 365);
+
         var win = "Well done! You win in: ";
         var gameswon = 0;
         var k = 1;
@@ -344,7 +193,7 @@ function guessgo() {
       if (table.rows.length == 5) {
         if (colour == "G,G,G,G,G") {
           cookwin(table.rows.length);
-          setCookie("inprog", 0, 365);
+
           var win = "Well done! You win in: ";
           var gameswon = 0;
           var k = 1;
@@ -375,7 +224,6 @@ function guessgo() {
           var x = document.getElementById("createbuttin");
         } else {
           cookloose();
-          setCookie("inprog", 0, 365);
           var win = "Bad luck! The word was ";
           win += rest;
           var gameswon = 0;
@@ -434,16 +282,6 @@ function cookwin(turns) {
     turn++;
     setCookie(turns, turn, 365);
   }
-  setCookie("ip1", null, 365);
-  setCookie("ip2", null, 365);
-  setCookie("ip3", null, 365);
-  setCookie("ip4", null, 365);
-  setCookie("ip5", null, 365);
-  setCookie("c1", null, 365);
-  setCookie("c2", null, 365);
-  setCookie("c3", null, 365);
-  setCookie("c4", null, 365);
-  setCookie("c5", null, 365);
 }
 
 function cookloose() {
@@ -454,16 +292,6 @@ function cookloose() {
     goes++;
     setCookie("lettrz", goes, 365);
   }
-  setCookie("ip1", null, 365);
-  setCookie("ip2", null, 365);
-  setCookie("ip3", null, 365);
-  setCookie("ip4", null, 365);
-  setCookie("ip5", null, 365);
-  setCookie("c1", null, 365);
-  setCookie("c2", null, 365);
-  setCookie("c3", null, 365);
-  setCookie("c4", null, 365);
-  setCookie("c5", null, 365);
 }
 
 function setCookie(cname, cvalue, exdays) {
