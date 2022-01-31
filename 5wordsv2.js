@@ -35,13 +35,13 @@ function pickone() {
     while (table.rows.length > 0) {
       table.deleteRow(0);
     }
-    
+
     var d = 0;
-    if (badlets !== "null"){
-     while (d !== badlets.length) {
-      document.getElementById(badlets[d]).style.background = "#a9a9a9";
-      d++;
-    }
+    if (badlets !== "null") {
+      while (d !== badlets.length) {
+        document.getElementById(badlets[d]).style.background = "#a9a9a9";
+        d++;
+      }
     }
 
     if (ip1 !== "null") {
@@ -327,7 +327,11 @@ function guessgo() {
       if (colour == "G,G,G,G,G") {
         cookwin(table.rows.length);
         setCookie("inprog", 0, 365);
-        var win = "Well done! You win in: ";
+        var win = "Well done!<br> The word was:";
+        win += "<b>";
+        win += rest;
+        win += "</b><br>"
+        win += " You win in: ";
         var gameswon = 0;
         var k = 1;
         var sum = 0;
@@ -362,7 +366,12 @@ function guessgo() {
         if (colour == "G,G,G,G,G") {
           cookwin(table.rows.length);
           setCookie("inprog", 0, 365);
-          var win = "Well done! You win in: ";
+          var win = "Well done!<br> The word was:";
+          win += "<b>";
+          win += rest;
+          win += "<b><br>";
+          win += " You win in: ";
+
           var gameswon = 0;
           var k = 1;
           var sum = 0;
@@ -430,7 +439,7 @@ function guessgo() {
         var x = document.getElementById("createbuttin");
       }
 
-     // document.getElementById("guessword").value = "";
+      // document.getElementById("guessword").value = "";
     }
   }
 }
