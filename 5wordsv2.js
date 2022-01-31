@@ -37,10 +37,11 @@ function pickone() {
     }
     
     var d = 0;
-    
-    while (d !== badlets.length) {
+    if (badlets !== "null"){
+     while (d !== badlets.length) {
       document.getElementById(badlets[d]).style.background = "#a9a9a9";
       d++;
+    }
     }
 
     if (ip1 !== "null") {
