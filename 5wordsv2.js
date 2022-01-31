@@ -14,6 +14,7 @@ function pickone() {
     setCookie("ip3", "null", 365);
     setCookie("ip4", "null", 365);
     setCookie("ip5", "null", 365);
+    setCookie("badletters", "null", 365);
     setCookie("currword", rest, 365);
   }
   if (progress == 1) {
@@ -28,12 +29,20 @@ function pickone() {
     var c4 = getCookie("c4");
     var ip5 = getCookie("ip5");
     var c5 = getCookie("c5");
+    var badlets = getCookie("badletters");
     var table = document.getElementById("result");
-    
-    while (table.rows.length > 0){
+    document.getElementById("instructions").style.display = "none";
+    while (table.rows.length > 0) {
       table.deleteRow(0);
     }
     
+    var d = 0;
+    
+    while (d !== badlets.length) {
+      document.getElementById(badlets[d]).style.background = "#a9a9a9";
+      d++;
+    }
+
     if (ip1 !== "null") {
       var row = table.insertRow(0);
       var i = 0;
@@ -250,9 +259,15 @@ function guessgo() {
             wrong += " ";
             // document.getElementById("w2").innerHTML = wrong;
             document.getElementById(guess[j]).style.background = "#a9a9a9";
-            
-            
-            
+
+            var badlets = getCookie("badletters");
+
+            if (badlets == "null") {
+              setCookie("badletters", guess[j], 365);
+            } else {
+              badlets += guess[j];
+              setCookie("badletters", badlets, 365);
+            }
           }
         }
         j++;
@@ -338,6 +353,7 @@ function guessgo() {
         document.getElementById("myModal").style.display = "block";
         var x = document.getElementById("guessword");
         document.getElementById("keyz").style.display = "none";
+
         var x = document.getElementById("createbuttin");
       }
 
@@ -413,7 +429,7 @@ function guessgo() {
         var x = document.getElementById("createbuttin");
       }
 
-      document.getElementById("guessword").value = "";
+     // document.getElementById("guessword").value = "";
     }
   }
 }
@@ -444,6 +460,7 @@ function cookwin(turns) {
   setCookie("c3", null, 365);
   setCookie("c4", null, 365);
   setCookie("c5", null, 365);
+  setCookie("badletters", "null", 365);
 }
 
 function cookloose() {
@@ -464,6 +481,7 @@ function cookloose() {
   setCookie("c3", null, 365);
   setCookie("c4", null, 365);
   setCookie("c5", null, 365);
+  setCookie("badletters", "null", 365);
 }
 
 function setCookie(cname, cvalue, exdays) {
