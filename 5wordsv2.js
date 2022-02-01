@@ -191,11 +191,16 @@ function pickone() {
 
 
 function httpGet(theUrl) {
-    var xmlHttp = new XMLHttpRequest();
-    xmlHttp.open( "GET", theUrl , true ); // false for synchronous request
-    xmlHttp.send( null );
-    return xmlHttp.responseText;
-    console.log(xmlHttp.responseText);
+  const Http = new XMLHttpRequest();
+  Http.open("GET", theUrl);
+  Http.send();
+
+  Http.onreadystatechange = e => {
+   var pass = Http.responseText;
+   var passclean = pass.replace(/[\n\r]/g, "");
+    console.log(pass);
+    console.log(passclean);
+}
 }
 
 function checkspell(guess) {
