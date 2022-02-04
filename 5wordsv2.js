@@ -8,7 +8,7 @@ function pickone() {
     var max = words.length;
     var ret = Math.floor(Math.random() * max);
     rest = words[ret];
-  //  console.log(httpGet("https://letrz.co.uk/getword"));
+  console.log(httpGet("https://letrz.co.uk/getword"));
     setCookie("inprog", 1, 365);
     setCookie("ip1", "null", 365);
     setCookie("ip2", "null", 365);
@@ -67,7 +67,6 @@ function pickone() {
           op += ip1[i];
           op += "</td>";
         }
-
         i++;
         i++;
       }
@@ -189,19 +188,6 @@ function pickone() {
   }
 }
 
-
-//function httpGet(theUrl) {
-//  const Http = new XMLHttpRequest();
-//  Http.open("GET", theUrl);
-//  Http.send();
-
- // Http.onreadystatechange = e => {
-//   var pass = Http.responseText;
-//   var passclean = pass.replace(/[\n\r]/g, "");
-//    console.log(pass);
-//    console.log(passclean);
-//}
-//}
 
 function checkspell(guess) {
   var leterbad;
