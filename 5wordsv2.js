@@ -8,7 +8,6 @@ function pickone() {
     var max = words.length;
     var ret = Math.floor(Math.random() * max);
     rest = words[ret];
-  console.log(httpGet("https://letrz.co.uk/getword"));
     setCookie("inprog", 1, 365);
     setCookie("ip1", "null", 365);
     setCookie("ip2", "null", 365);
