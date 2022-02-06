@@ -372,16 +372,31 @@ function guessgo() {
         win += Math.round(winper);
         win += "%";
 
-      win += '<br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
-          win += Math.round((getCookie(1) / gameswon) *100);
+      win += '<br><br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
+          var cwin = Math.round((getCookie(1) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(2) / gameswon) *100);
-          win += "%</td><td>" ;
-          win += Math.round((getCookie(3) / gameswon) *100);
+           var cwin = Math.round((getCookie(2) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(4) / gameswon) *100);
+           var cwin = Math.round((getCookie(3) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(5) / gameswon) *100);
+           var cwin = Math.round((getCookie(4) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
+          win += "%</td><td>";
+           var cwin = Math.round((getCookie(5) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td></tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></table>";
           win += '<br><a href="https://letrz.co.uk">New Game</a>';
         
@@ -424,16 +439,31 @@ function guessgo() {
           var winper = (gameswon / getCookie("lettrz")) * 100;
           win += Math.round(winper);
           win += "%";
-           win += '<br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
-          win += Math.round((getCookie(1) / gameswon) *100);
+           win += '<br><br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
+         var cwin = Math.round((getCookie(1) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(2) / gameswon) *100);
-          win += "%</td><td>" ;
-          win += Math.round((getCookie(3) / gameswon) *100);
+           var cwin = Math.round((getCookie(2) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(4) / gameswon) *100);
+           var cwin = Math.round((getCookie(3) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(5) / gameswon) *100);
+           var cwin = Math.round((getCookie(4) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
+          win += "%</td><td>";
+           var cwin = Math.round((getCookie(5) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td></tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></table>";
            win += '<br><a href="https://letrz.co.uk">New Game</a>';
           document.getElementById("gamesdone").innerHTML = win;
@@ -467,16 +497,31 @@ function guessgo() {
           var winper = (gameswon / getCookie("lettrz")) * 100;
           win += Math.round(winper);
           win += "%";
-            win += '<br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
-          win += Math.round((getCookie(1) / gameswon) *100);
+            win += '<br><br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
+          var cwin = Math.round((getCookie(1) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(2) / gameswon) *100);
-          win += "%</td><td>" ;
-          win += Math.round((getCookie(3) / gameswon) *100);
+           var cwin = Math.round((getCookie(2) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(4) / gameswon) *100);
+           var cwin = Math.round((getCookie(3) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td><td>";
-          win += Math.round((getCookie(5) / gameswon) *100);
+           var cwin = Math.round((getCookie(4) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
+          win += "%</td><td>";
+           var cwin = Math.round((getCookie(5) / gameswon) *100);
+          if (cwin > 0) {
+            win += cwin;
+          } else {win += 0;}
           win += "%</td></tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></table>";
           win += '<br><a href="https://letrz.co.uk">New Game</a>';
           document.getElementById("gamesdone").innerHTML = win;

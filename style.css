@@ -252,8 +252,7 @@ form {
   max-width: 100%;
 }
 
-th,
-td {
+th,td {
   padding: 10px;
 }
 
@@ -280,6 +279,9 @@ td {
   #footer {
     position: fixed;
     bottom: 0px;
+      margin-left: auto;
+  margin-right: auto;
+    width:100%;
   }
 }
 
