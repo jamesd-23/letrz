@@ -444,7 +444,7 @@ function guessgo() {
         } else {
           cookloose();
           setCookie("inprog", 0, 365);
-          var win = "Bad luck! The word was ";
+          var win = "Bad luck! The word was <b>";
           win += rest;
           var gameswon = 0;
           var k = 1;
@@ -459,7 +459,7 @@ function guessgo() {
             k++;
           }
 
-          win += "<br>";
+          win += "</b><br>";
 
           win += "This was game number ";
           win += getCookie("lettrz");
@@ -467,6 +467,17 @@ function guessgo() {
           var winper = (gameswon / getCookie("lettrz")) * 100;
           win += Math.round(winper);
           win += "%";
+            win += '<br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
+          win += Math.round((getCookie(1) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(2) / gameswon) *100);
+          win += "%</td><td>" ;
+          win += Math.round((getCookie(3) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(4) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(5) / gameswon) *100);
+          win += "%</td></tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></table>";
           win += '<br><a href="https://letrz.co.uk">New Game</a>';
           document.getElementById("gamesdone").innerHTML = win;
           document.getElementById("myModal").style.display = "block";
