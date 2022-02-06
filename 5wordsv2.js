@@ -1,13 +1,16 @@
 var guessword = "";
 var rest;
 var spell;
+var httpword;
 
 function pickone() {
+ 
   var progress = getCookie("inprog");
   if (progress != 1) {
     var max = words.length;
     var ret = Math.floor(Math.random() * max);
     rest = words[ret];
+    console.log(rest);
     setCookie("inprog", 1, 365);
     setCookie("ip1", "null", 365);
     setCookie("ip2", "null", 365);
@@ -187,6 +190,21 @@ function pickone() {
   }
 }
 
+function getword() {
+  const Http = new XMLHttpRequest();
+  const url =
+    "https://www.letrz.co.uk/getword";
+  Http.open("GET", url);
+  Http.send();
+
+Http.onreadystatechange = e => {
+const pass = Http.responseText;
+httpword = Http.responseText;
+
+  };
+
+}
+
 
 function checkspell(guess) {
   var leterbad;
@@ -353,7 +371,20 @@ function guessgo() {
         var winper = (gameswon / getCookie("lettrz")) * 100;
         win += Math.round(winper);
         win += "%";
-        win += '<br><a href="https://letrz.co.uk">New Game</a>';
+
+      win += '<br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
+          win += Math.round((getCookie(1) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(2) / gameswon) *100);
+          win += "%</td><td>" ;
+          win += Math.round((getCookie(3) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(4) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(5) / gameswon) *100);
+          win += "%</td></tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></table>";
+          win += '<br><a href="https://letrz.co.uk">New Game</a>';
+        
         document.getElementById("gamesdone").innerHTML = win;
         document.getElementById("myModal").style.display = "block";
         var x = document.getElementById("guessword");
@@ -369,7 +400,7 @@ function guessgo() {
           var win = "Well done!<br> The word was:";
           win += "<b>";
           win += rest;
-          win += "<b><br>";
+          win += "</b><br>";
           win += " You win in: ";
 
           var gameswon = 0;
@@ -393,7 +424,18 @@ function guessgo() {
           var winper = (gameswon / getCookie("lettrz")) * 100;
           win += Math.round(winper);
           win += "%";
-          win += '<br><a href="https://letrz.co.uk">New Game</a>';
+           win += '<br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
+          win += Math.round((getCookie(1) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(2) / gameswon) *100);
+          win += "%</td><td>" ;
+          win += Math.round((getCookie(3) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(4) / gameswon) *100);
+          win += "%</td><td>";
+          win += Math.round((getCookie(5) / gameswon) *100);
+          win += "%</td></tr><th>1</th><th>2</th><th>3</th><th>4</th><th>5</th></table>";
+           win += '<br><a href="https://letrz.co.uk">New Game</a>';
           document.getElementById("gamesdone").innerHTML = win;
           document.getElementById("myModal").style.display = "block";
           var x = document.getElementById("guessword");
