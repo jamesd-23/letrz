@@ -15,7 +15,7 @@ to this section's matching END comment to see page-specific styles.
 
 /* Our default values set as CSS variables */
 :root {
-  --color-bg: #69f7be;
+  --color-bg: #ffffff;
   --color-text-main: #000000;
   --color-primary: #ffff00;
   --wrapper-height: 87vh;
@@ -240,6 +240,8 @@ input[type="button"] {
   height: 35px;
   text-align: center;
   touch-action: manipulation;
+  background-color:#000000;
+  color:#ffffff;
   #del {
     width: 20%;
   }
