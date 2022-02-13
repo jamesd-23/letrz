@@ -347,7 +347,7 @@ function guessgo() {
         var sum = 0;
         var res = 0;
         while (k < 6) {
-          sum = getCookie(k);
+          sum = getCookie("n"+ k);
           res = parseInt(sum);
           if (res > 0) {
             gameswon = gameswon + res;
@@ -366,35 +366,35 @@ function guessgo() {
 
         win +=
           '<br><br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
-        var cwin = Math.round((getCookie(1) / gameswon) * 100);
+        var cwin = Math.round((getCookie("n"+1) / gameswon) * 100);
         if (cwin > 0) {
           win += cwin;
         } else {
           win += 0;
         }
         win += "%</td><td>";
-        var cwin = Math.round((getCookie(2) / gameswon) * 100);
+        var cwin = Math.round((getCookie("n"+2) / gameswon) * 100);
         if (cwin > 0) {
           win += cwin;
         } else {
           win += 0;
         }
         win += "%</td><td>";
-        var cwin = Math.round((getCookie(3) / gameswon) * 100);
+        var cwin = Math.round((getCookie("n"+3) / gameswon) * 100);
         if (cwin > 0) {
           win += cwin;
         } else {
           win += 0;
         }
         win += "%</td><td>";
-        var cwin = Math.round((getCookie(4) / gameswon) * 100);
+        var cwin = Math.round((getCookie("n"+4) / gameswon) * 100);
         if (cwin > 0) {
           win += cwin;
         } else {
           win += 0;
         }
         win += "%</td><td>";
-        var cwin = Math.round((getCookie(5) / gameswon) * 100);
+        var cwin = Math.round((getCookie("n"+5) / gameswon) * 100);
         if (cwin > 0) {
           win += cwin;
         } else {
@@ -427,7 +427,7 @@ function guessgo() {
           var sum = 0;
           var res = 0;
           while (k < 6) {
-            sum = getCookie(k);
+            sum = getCookie("n"+ k);
             res = parseInt(sum);
             if (res > 0) {
               gameswon = gameswon + res;
@@ -445,35 +445,35 @@ function guessgo() {
           win += "%";
           win +=
             '<br><br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
-          var cwin = Math.round((getCookie(1) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+1) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
             win += 0;
           }
           win += "%</td><td>";
-          var cwin = Math.round((getCookie(2) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+2) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
             win += 0;
           }
           win += "%</td><td>";
-          var cwin = Math.round((getCookie(3) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+3) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
             win += 0;
           }
           win += "%</td><td>";
-          var cwin = Math.round((getCookie(4) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+4) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
             win += 0;
           }
           win += "%</td><td>";
-          var cwin = Math.round((getCookie(5) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+5) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
@@ -497,7 +497,7 @@ function guessgo() {
           var sum = 0;
           var res = 0;
           while (k < 6) {
-            sum = getCookie(k);
+            sum = getCookie("n"+k);
             res = parseInt(sum);
             if (res > 0) {
               gameswon = gameswon + res;
@@ -515,35 +515,35 @@ function guessgo() {
           win += "%";
           win +=
             '<br><br><b>Your Game Stats</b><br><br><table id="score"><tr><td>';
-          var cwin = Math.round((getCookie(1) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+1) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
             win += 0;
           }
           win += "%</td><td>";
-          var cwin = Math.round((getCookie(2) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+2) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
             win += 0;
           }
           win += "%</td><td>";
-          var cwin = Math.round((getCookie(3) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+3) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
             win += 0;
           }
           win += "%</td><td>";
-          var cwin = Math.round((getCookie(4) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+4) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
             win += 0;
           }
           win += "%</td><td>";
-          var cwin = Math.round((getCookie(5) / gameswon) * 100);
+          var cwin = Math.round((getCookie("n"+5) / gameswon) * 100);
           if (cwin > 0) {
             win += cwin;
           } else {
@@ -581,10 +581,10 @@ function cookwin(turns) {
   }
 
   if (turn == null) {
-    setCookie(turns, 1, 365);
+    setCookie("n"+turns, 1, 365);
   } else {
     turn++;
-    setCookie(turns, turn, 365);
+    setCookie("n"+turns, turn, 365);
   }
   setCookie("lp1", null, 365);
   setCookie("lp2", null, 365);
