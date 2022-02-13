@@ -25,6 +25,22 @@ to this section's matching END comment to see page-specific styles.
   --font-family-header: "HK Grotesk";
 }
 
+/* Style navigation menu links */
+.topnav a {
+  color: white;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 17px;
+  display: block;
+}
+
+/* Add a grey background color on mouse-over */
+.topnav a:hover {
+  background-color: #dddddd;
+  color: black;
+}
+
+
 /* Basic page style resets */
 * {
   box-sizing: border-box;
@@ -213,10 +229,16 @@ table td#G {
   border: 1px solid black;
 }
 
+th,td {
+  padding: 10px;
+}
+
 table td {
   border: 1px solid black;
   
 }
+
+
 
 table {
   font-size: 20px;
@@ -224,6 +246,8 @@ table {
   width: 100%;
   
 }
+
+
 
 .score {
   font-size: 10px;
@@ -242,6 +266,8 @@ input[type="button"] {
   touch-action: manipulation;
   background-color:#000000;
   color:#ffffff;
+  -webkit-appearance: none; 
+  border-radius: 0; 
   #del {
     width: 20%;
   }
@@ -254,9 +280,7 @@ form {
   max-width: 100%;
 }
 
-th,td {
-  padding: 10px;
-}
+
 
 .aspectwrapper {
   display: inline-block; /* shrink to fit */
@@ -338,14 +362,7 @@ th,td {
   display: none;
 }
 
-/* Style navigation menu links */
-.topnav a {
-  color: white;
-  padding: 14px 16px;
-  text-decoration: none;
-  font-size: 17px;
-  display: block;
-}
+
 
 /* Style the hamburger menu */
 .topnav a.icon {
@@ -356,11 +373,7 @@ th,td {
   top: 0;
 }
 
-/* Add a grey background color on mouse-over */
-.topnav a:hover {
-  background-color: #ddd;
-  color: black;
-}
+
 
 /* Style the active link (or home/logo) */
 .active {
